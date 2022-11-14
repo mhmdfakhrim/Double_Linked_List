@@ -94,6 +94,29 @@ namespace Double_Linked_List
         {
             Node previous, current;
             previous = current = null;
+            if (search(rollNo, ref previous, ref current) == false)
+                return false;
+            //the beginning of data
+            if (current == null)
+            {
+                previous.next = null;
+                return true;
+            }    
+            //node between two nodes in the list
+            if (current == START)
+            {
+                START = START.next;
+                if (START != null)
+                    START.prev = null;
+                return true ;
+            }
+            /*
+             * if the to deleted is in between the list then the following lines of is executed
+             */
+            previous.next = current.next;
+            current.next.prev = previous;
+            return true;
         }
+        public bool list
     }
 }
