@@ -20,9 +20,34 @@ namespace Double_Linked_List
         //point to the preceeding node
         public Node prev;
     }
-    internal class Program
+    class DoubleLinkedList
     {
-        static void Main(string[] args)
+        Node START;
+
+        //constructor
+
+        public DoubleLinkedList()
+        {
+            START = null;
+        }
+
+        public void addNode()
+        {
+            int nim;
+            string nm;
+            Console.Write("\nEnter the roll number of the student: ");
+            nim = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter the name of the student: ");
+            nm = Console.ReadLine();
+            Node newNode = new Node();
+            newNode.noMhs = nim;
+            newNode.name = nm;
+
+            //check if the list empty
+            if (START == null) || nim <= START.noMhs)
+        }
+
+        
         {
         }
     }
