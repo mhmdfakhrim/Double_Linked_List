@@ -131,10 +131,40 @@ namespace Double_Linked_List
                 Console.WriteLine("\nList is Empty");
             else
             {
-                Console.WriteLine("\nRecord in the ascending order of" + "roll number are:\n")
+                Console.WriteLine("\nRecord in the ascending order of" + "roll number are:\n");
                     Node currentNode;
+                for(currentNode = START; currentNode != null; currentNode = currentNode.next)
+                { }
+                while(currentNode != null)
+                {
+                    Console.Write(currentNode.noMhs + "" + currentNode.name + "\n");
+                    currentNode = currentNode.prev;
+                }
             }
         }
 
     }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            DoubleLinkedList obj = new DoubleLinkedList();  
+            while(true)
+            {
+                try
+                {
+                    Console.WriteLine("\nMenu");
+                    Console.WriteLine("1. Add a record to the list");
+                    Console.WriteLine("\nMenu");
+                    Console.WriteLine("\nMenu");
+                    Console.WriteLine("\nMenu");
+                    Console.WriteLine("\nMenu");
+                    Console.WriteLine("\nMenu");
+                    Console.WriteLine("\nMenu");
+                }
+            }
+        }
+    }
+
 }
