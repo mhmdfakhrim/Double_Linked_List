@@ -44,19 +44,20 @@ namespace Double_Linked_List
             newNode.name = nm;
 
             //check if the list empty
-            if (START == null) || nim <= START.noMhs;)
-                    if ((START != null) && (nim == START.noMhs))
+            if (START == null || nim <= START.noMhs)
             {
-                Console.WriteLine("\nDuplicate number not allowed");
+                if ((START != null) && (nim == START.noMhs))
+                {
+                    Console.WriteLine("\nDuplicate number not allowed");
+                    return;
+                }
+                newNode.next = START;
+                if (START != null)
+                    START.prev = newNode;
+                newNode.prev = null;
+                START = newNode;
                 return;
             }
-            newNode.next = START;
-            if (START != null)
-                START.prev = newNode;
-            newNode.prev = null;
-            START = newNode;
-            return;
-
             /* if the node is to be inserted at between two node*/
             Node previous, current;
             for (current = previous = START;
@@ -66,7 +67,7 @@ namespace Double_Linked_List
                 if (nim == current.noMhs)
                 {
                     Console.WriteLine("\nDuplicate roll numbers not allowed");
-                    return ;
+                    return;
                 }
             }
             /*On the execution of the above for loop, prev and 
@@ -74,20 +75,20 @@ namespace Double_Linked_List
              * * between wich the new node is to be inserted */
             newNode.next = current;
             newNode.prev = previous;
-            
+
             //if the node is to be issarted at the end of the list 
-            if(current == null)
+            if (current == null)
             {
                 newNode.next = null;
                 newNode.next = newNode;
-                return ;
+                return;
             }
             current.prev = newNode;
-            previous.next = newNode;    
+            previous.next = newNode;
         }
-        public bool search (int rollNo, ref Node previous, ref Node current)
+        public bool search(int rollNo, ref Node previous, ref Node current)
         {
-            for (previous = current = START; current != null; && rollNo != current.noMhs; previous = current, current = current.next){ }
+            for (previous = current = START; current != null && rollNo != current.noMhs; previous = current, current = current.next){ }
             return (current != null);
         }
         public bool dellNode(int rollNo)
@@ -101,14 +102,14 @@ namespace Double_Linked_List
             {
                 previous.next = null;
                 return true;
-            }    
+            }
             //node between two nodes in the list
             if (current == START)
             {
                 START = START.next;
                 if (START != null)
                     START.prev = null;
-                return true ;
+                return true;
             }
             /*
              * if the to deleted is in between the list then the following lines of is executed
@@ -132,7 +133,7 @@ namespace Double_Linked_List
             else
             {
                 Console.WriteLine("\nRecord in the ascending order of" + "roll number are: \n");
-                node currentNode;
+                Node currentNode;
                 for (currentNode = START; currentNode != null; currentNode = currentNode.next)
                     Console.Write(currentNode.noMhs + "" + currentNode.name + "\n");
             }
@@ -145,14 +146,14 @@ namespace Double_Linked_List
             else
             {
                 Console.WriteLine("\nRecord in the Descending order of" + " roll number are: \n");
-                node currendNode;
-                for (currendNode = START; currendNode != null; currendNode = currendNode.next)
+                Node currentNode;
+                for (currentNode = START; currentNode != null; currentNode = currentNode.next)
                 { }
 
-                while (currendNode != null)
+                while (currentNode != null)
                 {
-                    Console.Write(currendNode.noMhs + "" + currendNode.name + "\n");
-                    currendNode = currendNode.prev;
+                    Console.Write(currentNode.noMhs + "" + currentNode.name + "\n");
+                    currentNode = currentNode.prev;
                 }
             }
         }
@@ -164,8 +165,8 @@ namespace Double_Linked_List
     {
         static void Main(string[] args)
         {
-            DoubleLinkedList obj = new DoubleLinkedList();  
-            while(true)
+            DoubleLinkedList obj = new DoubleLinkedList();
+            while (true)
             {
                 try
                 {
@@ -187,7 +188,7 @@ namespace Double_Linked_List
                             break;
                         case '2':
                             {
-                                if(obj.listEmpty())
+                                if (obj.listEmpty())
                                 {
                                     Console.WriteLine("\nList is empty");
                                     break;
@@ -205,7 +206,7 @@ namespace Double_Linked_List
                             {
                                 obj.ascending();
                             }
-                            break ;
+                            break;
                         case '4':
                             {
                                 obj.descending();
@@ -226,10 +227,24 @@ namespace Double_Linked_List
                                     Console.WriteLine("\nRecord not found");
                                 else
                                 {
-
+                                    Console.WriteLine("\nRecord found");
+                                    Console.WriteLine("\nRoll number: " + curr.noMhs);
+                                    Console.WriteLine("\nName: " + curr.name);
                                 }
                             }
+                            break;
+                        case '6':
+                            return;
+                        default:
+                            {
+                                Console.WriteLine("\nInvalid option");
+                            }
+                            break;
                     }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Check for the values entered");
                 }
             }
         }
