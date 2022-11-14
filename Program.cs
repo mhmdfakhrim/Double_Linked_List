@@ -69,9 +69,31 @@ namespace Double_Linked_List
                     return ;
                 }
             }
-            /*On the */
-    
-                )
-                }
+            /*On the execution of the above for loop, prev and 
+             * * current will point to these nodes
+             * * between wich the new node is to be inserted */
+            newNode.next = current;
+            newNode.prev = previous;
+            
+            //if the node is to be issarted at the end of the list 
+            if(current == null)
+            {
+                newNode.next = null;
+                newNode.next = newNode;
+                return ;
+            }
+            current.prev = newNode;
+            previous.next = newNode;    
+        }
+        public bool search (int rollNo, ref Node previous, ref Node current)
+        {
+            for (previous = current = START; current != null; && rollNo != current.noMhs; previous = current, current = current.next){ }
+            return (current != null);
+        }
+        public bool dellNode(int rollNo)
+        {
+            Node previous, current;
+            previous = current = null;
+        }
     }
 }
